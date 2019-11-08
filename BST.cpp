@@ -40,26 +40,40 @@ struct node * minValueNode(struct node* node){
     return current;
 }
 
+struct node * maxValueNode(struct node* node){
+    struct node* current = node;
+    while (current && current->right != NULL)
+        current = current->right;
+    return current;
+}
 
 
 
 int main(){
 
 /* Let us create following BST
-50
-/ \
-30 70
-/ \ / \
-20 40 60 80 */
+
+            8
+        /       \
+    3              10
+ /      \             \
+1       6             14 
+    /       \        /
+   4         7      13
+
+*/
 
     struct node *root = NULL;
-    root = insert(root, 50);
-    root = insert(root, 30);
-    root = insert(root, 20);
-    root = insert(root, 40);
-    root = insert(root, 70);
-    root = insert(root, 60);
-    root = insert(root, 80);
+    root = insert(root, 8);
+    root = insert(root, 3);
+    root = insert(root, 10);
+    root = insert(root, 1);
+    root = insert(root, 6);
+    root = insert(root, 4);
+    root = insert(root, 7);
+    root = insert(root, 14);
+    root = insert(root, 13);
+    
     printf("Inorder traversal of the given tree \n");
     inorder(root);
     return 0;
